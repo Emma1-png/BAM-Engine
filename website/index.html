@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>BAM! Engine</title>
     <style>
         * {
             margin: 0;
@@ -82,10 +82,18 @@
             font-size: 18px;
             transition: background-color 0.2s;
             border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .sidebar a:hover {
             background-color: #FFF5A3;
+        }
+
+        .sidebar a img {
+            width: auto;
+            height: 24px;
         }
 
         .overlay {
@@ -123,8 +131,12 @@
     <div class="overlay" id="overlay"></div>
 
     <div class="sidebar" id="sidebar">
-        <a href="https://discord.gg/TGxpaKKQNk" target="_blank">Discord</a>
-        <a href="https://github.com/Emma1-png/BAM-Engine/wiki" target="_blank">Wiki</a>
+        <a href="https://discord.gg/TGxpaKKQNk" target="_blank">
+            <img src="Icondsc.png" alt="Discord Icon"> Discord
+        </a>
+        <a href="https://github.com/Emma1-png/BAM-Engine/wiki" target="_blank">
+            <img src="Iconwiki.png" alt="Wiki Icon"> Wiki
+        </a>
     </div>
 
     <div class="content">
