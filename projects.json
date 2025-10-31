@@ -1,0 +1,32 @@
+{
+	"projects": [
+		{
+			"ProjectName": "Project 1",
+			"ProjectDescription": "An example project for BAM! Engine",
+			"RenderType": "2D",
+			"SavePath": "C://Users/Example/Bam!Projects/ExampleProject",
+			"LastEdited": "23/10/2025"
+		},
+		{
+			"ProjectName": "Project 2",
+			"ProjectDescription": "A second example project for BAM! Engine",
+			"RenderType": "2D",
+			"SavePath": "C://Users/Example/Bam!Projects/ExampleProject",
+			"LastEdited": "28/10/2025"
+		},
+		{
+			"ProjectName": "Project 3",
+			"ProjectDescription": "A THIRD example project for BAM! Engine",
+			"RenderType": "2D",
+			"SavePath": "C://Users/Example/Bam!Projects/ExampleProject",
+			"LastEdited": "4/10/2025"
+		},
+		{
+			"ProjectName": "Project 4",
+			"ProjectDescription": "A FOURTH example project for BAM! Engine",
+			"RenderType": "2D",
+			"SavePath": "C://Users/Example/Bam!Projects/ExampleProject",
+			"LastEdited": "9/10/2025"
+		}
+	]
+}
