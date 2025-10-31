@@ -6,6 +6,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import json as jsn
 from datetime import datetime as dt
+import loader as ld
 
 height = 320
 
@@ -144,6 +145,12 @@ def readProjectsJSONFile():
         loadRecentProjectButton4.config(state=tk.NORMAL)
 
 readProjectsJSONFile()
+
+# Enable loader
+def launchProjectCreator():
+    launcher = ld.frontEnd(500, 600)
+    launcher.openWindow() # Open the new window
+newProjectButton.config(command=launchProjectCreator)
 
 # --- Mainloop ---
 wn.mainloop()
