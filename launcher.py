@@ -102,7 +102,7 @@ def readProjectsJSONFile():
     
     slotsFilled = 0
     
-    # TO NOTE: The projects.json properties "RenderType" and "SavePath" are for the engine backend to decipher, it is not for reading in the launcher
+    # TO NOTE: The projects.json properties "RenderType" and "SavePath" are for the engine backend to decipher, it is not for reading in the launcher (loader.py)
     for project in projects:
         # The prints are for debugging only. Change the IF STATEMENT from False to True (line below) when needed.
         if False:
@@ -148,8 +148,9 @@ readProjectsJSONFile()
 
 # Enable loader
 def launchProjectCreator():
-    launcher = ld.frontEnd(500, 600)
+    launcher = ld.frontEnd(500, 345)
     launcher.openWindow() # Open the new window
+    quit()
 newProjectButton.config(command=launchProjectCreator)
 
 # --- Mainloop ---
