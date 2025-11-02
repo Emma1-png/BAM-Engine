@@ -2,6 +2,9 @@ import tkinter as tk
 from tkinter import filedialog
 from PIL import Image, ImageTk
 import json as jsn
+from datetime import datetime as dt
+import getpass as gp
+import os
 
 class frontEnd:
     def __init__(self, windowSizeX, windowSizeY):
@@ -19,11 +22,11 @@ class frontEnd:
         c.pack(fill="both", expand=True)
         
         # Engine Title/Logo
-        img = Image.open("FullLogo.png")
-        img = img.resize((110, 65))
-        bamLogoFull = ImageTk.PhotoImage(img)
-        logo = tk.Label(c, image=bamLogoFull)
-        c.create_window(0, 0, anchor="nw", window=logo)
+        img1 = Image.open("FullLogo.png")
+        img1 = img1.resize((110, 65))
+        bamLogoFull1 = ImageTk.PhotoImage(img1)
+        logo1 = tk.Label(c, image=bamLogoFull1)
+        c.create_window(0, 0, anchor="nw", window=logo1)
         
         # Window Title
         windowTitle = tk.Label(c, text="NEW PROJECT", font=("Helvetica", 16, "bold"))
@@ -91,23 +94,55 @@ class backEnd:
         self.descriptionBox = descriptionBox
         self.choiceVar = choiceVar
         self.saveLocation = None # Selected later in chooseSaveLocation
+        self.username = gp.getuser()
+        self.projectJSON = None
+    
+    def addToJSON(self): # HERE
+        if os.path.exists("projects.json"):
+            with open("projects.json", "r") as f:
+                data = jsn.load(f)
+        else:
+            data = {"projects": []}
+            
+        data["projects"].append(self.projectJSON)
+        
+        with open("projects.json", "w") as f:
+            jsn.dump(data, f, indent=4)
     
     def compileInformation(self):
         projectName = self.nameBox.get()
         projectDescription = self.descriptionBox.get("1.0", tk.END).strip()
         renderer = self.choiceVar.get()
+        currentDate = dt.today().strftime("%d/%m/%Y")
+        
+        if self.saveLocation == None:
+            self.saveLocation = f"C://Users/{self.username}/BAM! Engine Projects/{projectName}" #See __init__ (backEnd) to see this defined
+        else:
+            self.saveLocation += f"/{projectName}"
+            
+        # If not "/BAM! Engine Projects" exists, make one.
+        if not os.path.exists(self.saveLocation):
+            os.makedirs(self.saveLocation)
+        
+        self.projectJSON = {
+            "ProjectName": projectName,
+            "ProjectDescription": projectDescription,
+            "RenderType": renderer,
+            "SavePath": self.saveLocation,
+            "LastEdited": currentDate
+        }
+        
+        self.addToJSON()
         
         # DEBUG - change to TRUE
         if True:
-            print(f"Project Name: {projectName} \nProject Description: {projectDescription} \nProject Renderer: {renderer}\nSave Location: {self.saveLocation}")
+            print(f"Project Name: {projectName} \nProject Description: {projectDescription} \nProject Renderer: {renderer} \nSave Location: {self.saveLocation} \nDate: {currentDate}")
             
     def chooseSaveLocation(self):
         locationChosen = filedialog.askdirectory(title="Select Save Location")
         if locationChosen:
-            print(f"Save Location Chosen: {locationChosen}")
             self.saveLocation = locationChosen
 
 if __name__ == "__main__":
-    print("Frontend Loading...")
     fe = frontEnd(500, 345)
     fe.openWindow()
