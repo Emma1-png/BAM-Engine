@@ -148,9 +148,10 @@ readProjectsJSONFile()
 
 # Enable loader
 def launchProjectCreator():
+    wn.destroy()
     launcher = ld.frontEnd(500, 345)
     launcher.openWindow() # Open the new window
-    quit()
+    
 newProjectButton.config(command=launchProjectCreator)
 
 # --- Mainloop ---
