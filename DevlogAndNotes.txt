@@ -243,3 +243,6 @@ Each one saves as a string.
 ||                                  |                                                                                                                   |
 ||                                  |                                                                                                                   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+3/11/2025
+I am going to continue with the loading of projects script, but (in my previous sessions) I have managed to make it so that, if no file path provided, it saves in into a folder that is instantly made, called "BAM! Engine Projects", that is saved into "C://Users/{Username}/
