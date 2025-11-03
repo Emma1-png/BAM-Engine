@@ -96,8 +96,24 @@ class backEnd:
         self.saveLocation = None # Selected later in chooseSaveLocation
         self.username = gp.getuser()
         self.projectJSON = None
+        
+        self.projectName = None
+        self.projectDescription = None
     
-    def addToJSON(self): # HERE
+    def createBamSaveFile(self):
+        '''
+        # Creates a file (save.bam)
+        # Formatted like: ObjectName | (Position - Vector3)(Scale - Vector2)Rotation - Int|AssetUse - .png | ScriptInheritance | SpecialModifiers |
+        # ScriptInheritance (E.G. playerMovement.es)
+        # SpecialModifiers are modifiers that change the way the object appears (E.G. Gravity: (power, friction))
+        # Full example looks like:
+        # Player | (0, 0, 0) (1, 1) 90 | Player.png | player.es | (Gravity: (1, 1))
+        '''
+        savePath = os.path.join(self.saveLocation, "save.bam")
+        with open(savePath, "w") as f:
+            f.write(f"{self.projectName} - SAVE FILE")
+    
+    def addToJSON(self):
         if os.path.exists("projects.json"):
             with open("projects.json", "r") as f:
                 data = jsn.load(f)
@@ -111,7 +127,11 @@ class backEnd:
     
     def compileInformation(self):
         projectName = self.nameBox.get()
+        self.projectName = projectName
+        
         projectDescription = self.descriptionBox.get("1.0", tk.END).strip()
+        self.projectDescription = projectDescription
+        
         renderer = self.choiceVar.get()
         currentDate = dt.today().strftime("%d/%m/%Y")
         
@@ -137,6 +157,14 @@ class backEnd:
         # DEBUG - change to TRUE
         if True:
             print(f"Project Name: {projectName} \nProject Description: {projectDescription} \nProject Renderer: {renderer} \nSave Location: {self.saveLocation} \nDate: {currentDate}")
+            
+        
+        
+        # Create save.bam
+        self.createBamSaveFile()
+        
+        import ENGINE
+        # TODO: Bring in the name of the project to the title of the ENGINE window
             
     def chooseSaveLocation(self):
         locationChosen = filedialog.askdirectory(title="Select Save Location")
