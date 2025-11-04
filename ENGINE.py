@@ -2,12 +2,16 @@ import tkinter as tk
 import PIL as pi
 import math as ma
 import json as jsn
+import sys
 
 # Engine imports
 import audioEngine as ae         # Emits audio when needed
 import flatRenderer as fr        # Renders the shaoe of the .png given
 import lightEngine as le         # Renders light
 import textureRenderer as tr     # Renders the textures on top of flatRenderer
+
+projectName = sys.argv[1]
+print(projectName)
 
 class FrontEnd:
     def __init__(self, windowSizeX, windowSizeY):
