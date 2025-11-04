@@ -5,6 +5,7 @@ import json as jsn
 from datetime import datetime as dt
 import getpass as gp
 import os
+import subprocess as sp
 
 class frontEnd:
     def __init__(self, windowSizeX, windowSizeY):
@@ -109,7 +110,7 @@ class backEnd:
         # Full example looks like:
         # Player | (0, 0, 0) (1, 1) 90 | Player.png | player.es | (Gravity: (1, 1))
         '''
-        savePath = os.path.join(self.saveLocation, "save.bam")
+        self.savePath = os.path.join(self.saveLocation, "save.bam")
         with open(savePath, "w") as f:
             f.write(f"{self.projectName} - SAVE FILE")
     
@@ -158,7 +159,8 @@ class backEnd:
         if True:
             print(f"Project Name: {projectName} \nProject Description: {projectDescription} \nProject Renderer: {renderer} \nSave Location: {self.saveLocation} \nDate: {currentDate}")
             
-        
+        os.environ["ENGINEDATA"] = "Hello"
+        subprocess.run([self.projectName, self.savePath], env=os.environ)
         
         # Create save.bam
         self.createBamSaveFile()
