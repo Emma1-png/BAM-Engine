@@ -56,15 +56,18 @@ class FrontEnd:
         widthHighlight = 3
 
         # General Lines
-        BarrierLine = c.create_line(0, y1, 900, y1, width=widthMain)
+        BarrierLine = c.create_line(0, y1, self.windowSizeX, y1, width=widthMain)
 
-        HierachyLine = c.create_line(x1, y1, x1, 500, width=widthSeperator)
+        HierachyLine = c.create_line(x1, y1, x1, self.windowSizeY, width=widthSeperator)
 
         OptionsLine = c.create_line(x2, y1, x2, y2, width=widthSeperator)
-        OptionsSeperatorLine = c.create_line(x2, y4, width, y4, width=widthHighlight)
+        OptionsSeperatorLine = c.create_line(x2, y4, self.windowSizeX, y4, width=widthHighlight)
 
-        ProjectLine = c.create_line(x1, y2, 900, y2, width=widthSeperator)
-        ProjectSeperatorLine = c.create_line(x1, y3, 900, y3, width=widthHighlight)
+        ProjectLine = c.create_line(x1, y2, self.windowSizeX, y2, width=widthSeperator)
+        ProjectSeperatorLine = c.create_line(x1, y3, self.windowSizeX, y3, width=widthHighlight)
+
+        # General (No Commands Given) Buttons
+        runButton = tk.Button(c, 
         
         self.wn.mainloop()
 
