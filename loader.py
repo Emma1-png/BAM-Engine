@@ -159,8 +159,8 @@ class backEnd:
         if True:
             print(f"Project Name: {projectName} \nProject Description: {projectDescription} \nProject Renderer: {renderer} \nSave Location: {self.saveLocation} \nDate: {currentDate}")
             
-        os.environ["ENGINEDATA"] = "Hello"
-        subprocess.run([self.projectName, self.savePath], env=os.environ)
+        with open("ENGINEDATA.tmp", "w") as f:
+            f.write(f"{projectName}")
         
         # Create save.bam
         self.createBamSaveFile()
@@ -176,4 +176,5 @@ class backEnd:
 if __name__ == "__main__":
     fe = frontEnd(500, 345)
     fe.openWindow()
+
 
