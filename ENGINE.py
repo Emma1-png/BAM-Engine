@@ -24,7 +24,8 @@ class FrontEnd:
         wn.geometry(f"{self.windowSizeX}x{self.windowSizeY}")
 
         with open("ENGINEDATA.tmp", "r") as f:
-            
+            fileContents = f.read()
+            print(fileContents)
         
         wn.title(f"BAM! Engine - {}") # TO DO: GET THE NAME OF THE CURRENTLY LOADED PROJECT AND INPUT IT INTO THE STRING (ReadJSON?)
         
