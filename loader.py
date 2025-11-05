@@ -1,11 +1,11 @@
-import tkinter as tk
+from datetime import datetime as dt
 from tkinter import filedialog
 from PIL import Image, ImageTk
-import json as jsn
-from datetime import datetime as dt
-import getpass as gp
-import os
 import subprocess as sp
+import tkinter as tk
+import getpass as gp
+import json as jsn
+import os
 
 class frontEnd:
     def __init__(self, windowSizeX, windowSizeY):
@@ -176,3 +176,4 @@ class backEnd:
 if __name__ == "__main__":
     fe = frontEnd(500, 345)
     fe.openWindow()
+
