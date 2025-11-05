@@ -26,8 +26,9 @@ class FrontEnd:
         with open("ENGINEDATA.tmp", "r") as f:
             fileContents = f.read()
             print(fileContents)
+            self.projectName = fileContents
         
-        wn.title(f"BAM! Engine - {}") # TO DO: GET THE NAME OF THE CURRENTLY LOADED PROJECT AND INPUT IT INTO THE STRING (ReadJSON?)
+        wn.title(f"BAM! Engine - {self.projectName}")
         
         wn.resizable(0, 0)
         
