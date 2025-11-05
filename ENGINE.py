@@ -1,5 +1,5 @@
 import tkinter as tk
-import PIL as pi
+from PIL import Image, ImageTk as pi
 import math as ma
 import json as jsn
 
