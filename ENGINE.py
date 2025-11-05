@@ -67,7 +67,17 @@ class FrontEnd:
         ProjectSeperatorLine = c.create_line(x1, y3, self.windowSizeX, y3, width=widthHighlight)
 
         # General (No Commands Given) Buttons
-        runButton = tk.Button(c, 
+        RunButton = tk.Button(c, text="▶")
+        RunButton.place(x=width/2, y=0)
+
+        AssetsButton = tk.Button(c, text="Assets")
+        AssetsButton.place(x=205, y=354)
+
+        LogsButton = tk.Button(c, text="Logs")
+        LogsButton.place(x=255, y=354)
+
+        HelpButton = tk.Button(c, text="Help")
+        HelpButton.place(x=300, y=354)
         
         self.wn.mainloop()
 
