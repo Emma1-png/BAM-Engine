@@ -2,7 +2,6 @@ import tkinter as tk
 import PIL as pi
 import math as ma
 import json as jsn
-import sys
 
 # Engine imports
 import audioEngine as ae         # Emits audio when needed
@@ -10,17 +9,23 @@ import flatRenderer as fr        # Renders the shaoe of the .png given
 import lightEngine as le         # Renders light
 import textureRenderer as tr     # Renders the textures on top of flatRenderer
 
-projectName = sys.argv[1]
-print(projectName)
-
 class FrontEnd:
     def __init__(self, windowSizeX, windowSizeY):
         self.windowSizeX = windowSizeX
         self.windowSizeY = windowSizeY
+
+        # Defined afterwards
+        self.projectName = None
+        self.projectDescription = None
+        self.savePath = None
     
     def InitialiseWindow(self):
         wn = tk.Tk()
         wn.geometry(f"{self.windowSizeX}x{self.windowSizeY}")
+
+        with open("ENGINEDATA.tmp", "r") as f:
+            
+        
         wn.title(f"BAM! Engine - {}") # TO DO: GET THE NAME OF THE CURRENTLY LOADED PROJECT AND INPUT IT INTO THE STRING (ReadJSON?)
         
         wn.resizable(0, 0)
