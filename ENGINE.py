@@ -49,6 +49,7 @@ class FrontEnd:
         y1 = 30
         y2 = 350
         y3 = 375
+        y4 = 55
 
         widthMain = 4
         widthSeperator = 2
@@ -60,6 +61,7 @@ class FrontEnd:
         HierachyLine = c.create_line(x1, y1, x1, 500, width=widthSeperator)
 
         OptionsLine = c.create_line(x2, y1, x2, y2, width=widthSeperator)
+        OptionsSeperatorLine = c.create_line(x2, y4, width, y4, width=widthHighlight)
 
         ProjectLine = c.create_line(x1, y2, 900, y2, width=widthSeperator)
         ProjectSeperatorLine = c.create_line(x1, y3, 900, y3, width=widthHighlight)
