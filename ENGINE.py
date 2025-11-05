@@ -64,9 +64,9 @@ class BackEnd:
             if option == "ProjectName":
                 for project in data["projects"]:
                     print(project["ProjectName"], "->", project["SavePath"])
-                
-fe = FrontEnd(900, 500)
-be = BackEnd()
-fe.InitialiseWindow()
-be.ReadJSON("ProjectName")
-fe.WindowDisplay()
+
+if __name__ == "__main__":
+    fe = FrontEnd(900, 500)
+    be = BackEnd()
+    fe.InitialiseWindow()
+    fe.WindowDisplay()
