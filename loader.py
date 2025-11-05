@@ -7,6 +7,8 @@ import getpass as gp
 import json as jsn
 import os
 
+import ENGINE as EN
+
 class frontEnd:
     def __init__(self, windowSizeX, windowSizeY):
         self.windowSizeX = windowSizeX
@@ -165,8 +167,11 @@ class backEnd:
         # Create save.bam
         self.createBamSaveFile()
         
-        import ENGINE
-        # TODO: Bring in the name of the project to the title of the ENGINE window
+        feEngine = EN.FrontEnd(900, 500)
+        beEngine = EN.BackEnd()
+
+        feEngine.InitialiseWindow()
+        feEngine.WindowDisplay()
             
     def chooseSaveLocation(self):
         locationChosen = filedialog.askdirectory(title="Select Save Location")
@@ -176,5 +181,6 @@ class backEnd:
 if __name__ == "__main__":
     fe = frontEnd(500, 345)
     fe.openWindow()
+
 
 
