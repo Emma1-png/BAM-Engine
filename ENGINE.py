@@ -43,7 +43,26 @@ class FrontEnd:
         self.c = tk.Canvas(self.wn, width=self.windowSizeX, height=self.windowSizeY)
         self.c.pack(fill="both", expand=True)
         
-        
+        x1 = 200
+        x2 = 650
+
+        y1 = 30
+        y2 = 350
+        y3 = 375
+
+        widthMain = 4
+        widthSeperator = 2
+        widthHighlight = 3
+
+        # General Lines
+        BarrierLine = c.create_line(0, y1, 900, y1, width=widthMain)
+
+        HierachyLine = c.create_line(x1, y1, x1, 500, width=widthSeperator)
+
+        OptionsLine = c.create_line(x2, y1, x2, y2, width=widthSeperator)
+
+        ProjectLine = c.create_line(x1, y2, 900, y2, width=widthSeperator)
+        ProjectSeperatorLine = c.create_line(x1, y3, 900, y3, width=widthHighlight)
         
         self.wn.mainloop()
 
