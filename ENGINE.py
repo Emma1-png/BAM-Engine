@@ -94,10 +94,11 @@ class BackEnd:
     def ReadJSON(self, option):
         with open("projects.json", "r") as f:
             data = jsn.load(f)
-            
+            ''' Not needed yet.
             if option == "ProjectName":
                 for project in data["projects"]:
                     print(project["ProjectName"], "->", project["SavePath"])
+                    '''
 
 if __name__ == "__main__":
     fe = FrontEnd(900, 500)
